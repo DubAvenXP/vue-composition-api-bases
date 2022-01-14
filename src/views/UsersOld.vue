@@ -4,10 +4,12 @@
     <h5 v-if="errorMessage">{{ errorMessage }}</h5>
 
     <div v-if="users.length > 0">
-        <user-list :users="users" v-slot="{user}">
-            <h5>{{user.first_name}} {{user.last_name}}</h5>
-            <span>{{user.email}}</span>
-        </user-list>
+        <ul>
+            <li v-for="{ first_name, last_name, email, id } in users" :key="id">
+                <h4>{{ first_name }} {{ last_name }}</h4>
+                <h6>{{ email }}</h6>
+            </li>
+        </ul>
     </div>
 
     <button @click="prevPage">Atras</button>
@@ -17,11 +19,7 @@
 
 <script>
 import { useUsers } from "@/composables/useUsers";
-import { defineAsyncComponent } from 'vue';
 export default {
-    components: {
-        UserList: defineAsyncComponent(() => import("@/components/UserList.vue")),
-    },
     setup() {
         const {
             users,
@@ -57,5 +55,13 @@ div {
     text-align: center;
 }
 
-
+ul {
+    width: 250px;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+h6 {
+    font-size: 0.8rem;
+}
 </style>

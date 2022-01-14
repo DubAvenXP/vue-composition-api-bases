@@ -14,6 +14,14 @@ export default createStore({
     toggleTodo(state, id) {
       const todoIdx = state.todos.findIndex(todo => todo.id === id);
       state.todos[todoIdx].completed = !state.todos[todoIdx].completed;
+    },
+    createTodo(state, text) {
+      if (text.length < 1) return;
+      state.todos.push({
+        id: state.todos.length + 1,
+        text,
+        completed: false,
+      });
     }
   },
   actions: {

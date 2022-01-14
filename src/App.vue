@@ -5,7 +5,8 @@
         <router-link :to="{ name: 'counter' }">Counter</router-link> |
         <router-link :to="{ name: 'users' }">Usuarios</router-link> |
         <router-link :to="{ name: 'search-pokemon' }">Pokemón</router-link> |
-        <router-link :to="{ name: 'todo' }">To-Do</router-link>
+        <router-link :to="{ name: 'todo' }">To-Do</router-link> |
+        <router-link :to="{ name: 'slots' }">Slots</router-link>
     </div>
 
     <router-view v-slot="{ Component, route }">
@@ -17,7 +18,7 @@
 
 <style>
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Avenir, Helvetica, Arial, sans-serif; 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
